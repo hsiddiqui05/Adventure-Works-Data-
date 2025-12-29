@@ -1,1 +1,94 @@
+-----------------------------------
+-- Creating Gold Layer Views
+-- CALENDAR
+-----------------------------------
+GO
+CREATE OR ALTER VIEW goldlayer.calendar
+AS
+SELECT *
+FROM OPENROWSET
+(
+    BULK 'https://awsresourcegroup05.blob.core.windows.net/silver/AdventureWorks_Calendar/',
+    FORMAT = 'PARQUET'
+) AS src;
+GO
+
+-----------------------------------
+-- Customer 
+-----------------------------------
+CREATE OR ALTER VIEW goldlayer.customers
+AS
+SELECT *
+FROM OPENROWSET
+(
+    BULK 'https://awsresourcegroup05.blob.core.windows.net/silver/AdventureWorks_Customers/',
+    FORMAT = 'PARQUET'
+) AS src;
+GO
+
+-----------------------------------
+-- Product Subcategories
+-----------------------------------
+CREATE OR ALTER VIEW goldlayer.product_subcategories
+AS
+SELECT *
+FROM OPENROWSET
+(
+    BULK 'https://awsresourcegroup05.blob.core.windows.net/silver/AdventureWorks_ProductSubcategories/',
+    FORMAT = 'PARQUET'
+) AS src;
+GO
+
+-----------------------------------
+-- Products
+-----------------------------------
+CREATE OR ALTER VIEW goldlayer.products
+AS
+SELECT *
+FROM OPENROWSET
+(
+    BULK 'https://awsresourcegroup05.blob.core.windows.net/silver/AdventureWorks_Products/',
+    FORMAT = 'PARQUET'
+) AS src;
+GO
+
+-----------------------------------
+-- Returns
+-----------------------------------
+CREATE OR ALTER VIEW goldlayer.returns
+AS
+SELECT *
+FROM OPENROWSET
+(
+    BULK 'https://awsresourcegroup05.blob.core.windows.net/silver/AdventureWorks_Returns/',
+    FORMAT = 'PARQUET'
+) AS src;
+GO
+
+-----------------------------------
+-- SALES View (Merged 2015–2017)
+-----------------------------------
+CREATE OR ALTER VIEW goldlayer.sales
+AS
+SELECT *
+FROM OPENROWSET
+(
+    BULK 'https://awsresourcegroup05.blob.core.windows.net/silver/AdventureWorks_Sales/',
+    FORMAT = 'PARQUET'
+) AS src;
+GO
+
+-----------------------------------
+-- Territories
+-----------------------------------
+CREATE OR ALTER VIEW goldlayer.territories
+AS
+SELECT *
+FROM OPENROWSET
+(
+    BULK 'https://awsresourcegroup05.blob.core.windows.net/silver/AdventureWorks_Territories/',
+    FORMAT = 'PARQUET'
+) AS src;
+GO
+
 
